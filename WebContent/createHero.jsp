@@ -18,14 +18,14 @@
 		    <label for="adresse">Adresse</label>
 		    <input type="text" class="form-control" name="adresse"  id="adresse" placeholder=" votre adresse">
   	</div>
-  	<div class="form-group">
+<!--   	<div class="form-group">
 		    <label for="adresse">Latitude</label>
 		    <input type="number" class="form-control"  name="latitude"  id="latitude" placeholder="Latitude">
   	</div>
   	<div class="form-group">
 		    <label for="adresse">Longitude</label>
 		    <input type="number"class="form-control"  name="longitude"  id="longitude" placeholder="longitude">
-  	</div>
+  	</div> -->
 	<div class="d-flex">
   	<c:forEach var="typeIncident" items="${typeIncidents}"> 
 		 <div class="form-check">

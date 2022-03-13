@@ -4,16 +4,16 @@
 
 	<div class="form-group">
 		    <label for="ville">Ville</label>
-		    <input type="text" class="form-control" name="ville"  id="ville" placeholder=" votre adresse">
+		    <input type="text" class="form-control" name="ville"  id="ville" placeholder="votre adresse">
   	</div>
-  	<div class="form-group">
+<!--   	<div class="form-group">
 		    <label for="latitude">Latitude</label>
 		    <input type="number" class="form-control" step="0.01" name="latitude"  id="latitude" placeholder="longitude">
   	</div>
   	<div class="form-group">
 		    <label for="longitude">Longitude</label>
 		    <input type="number"class="form-control" step="0.01" name="longitude"  id="longitude" placeholder="longitude">
-  	</div>
+  	</div> -->
   	
  	<div class="d-flex">
   	<c:forEach var="typeIncident" items="${typeIncidents}"> 

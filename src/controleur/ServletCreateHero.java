@@ -10,7 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import controleur.GPSCoordinates;
 import entite.Hero;
 import entite.TypeIncident;
 import model.HeroRepository;
@@ -24,6 +24,7 @@ public class ServletCreateHero extends HttpServlet {
 	public ServletCreateHero() {
 		heroRepository = new HeroRepository();
 		typeIncidentRepository = new TypeIncidentRepository();
+		
 	}
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -42,9 +43,10 @@ public class ServletCreateHero extends HttpServlet {
 			String nom = request.getParameter("nom");  
 			String tel = request.getParameter("tel"); 
 			String adresse = request.getParameter("adresse"); 
-			double latitude = Double.parseDouble(request.getParameter("latitude")); 
-			double longitude = Double.parseDouble(request.getParameter("longitude")); 
-			Hero hero = new Hero(nom, tel, adresse, latitude, longitude);
+			GPSCoordinates gpsHero = GPSCoordinates.getGpsCoordinatesByAddress(adresse);
+//			double latitude = Double.parseDouble(request.getParameter("latitude")); 
+//			double longitude = Double.parseDouble(request.getParameter("longitude")); 
+			Hero hero = new Hero(nom, tel, adresse, gpsHero.getLatitude().doubleValue(), gpsHero.getLongitude().doubleValue());
 			int idHero = heroRepository.creer(hero);
 			for(int i = 1; i<=10; i++) {
 				String incident = request.getParameter("incident".concat(String.valueOf(i))); 

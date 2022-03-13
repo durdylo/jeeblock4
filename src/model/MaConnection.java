@@ -26,23 +26,6 @@ public class MaConnection {
 		return connect; 
 	}
 	
-		public static int getLastId(){
-		
-		int id=0;
-		try {
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection con= MaConnection.getInstance();
-		PreparedStatement ps=con.prepareStatement("insert into record (name) values(?)",Statement.RETURN_GENERATED_KEYS);
-		ps.setString(1,"Neeraj");
-		ps.executeUpdate();
-		ResultSet rs=ps.getGeneratedKeys();
-		if(rs.next()){
-		id=rs.getInt(1);
-		}
-		} catch (Exception e) {
-		e.printStackTrace();
-		}
-		return id;
-		}
+	
 }
 

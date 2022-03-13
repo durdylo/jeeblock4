@@ -48,9 +48,9 @@ public class GPSCoordinates {
 	}
 	
 	
-	public static GPSCoordinates getGpsCoordinatesByAddress(String address, String city, String zipcode) {
+	public static GPSCoordinates getGpsCoordinatesByAddress(String address) {
 		GPSCoordinates GPSCoordinates = null;
-		String fullAddress = address + " " + zipcode + " " + city;
+		String fullAddress = address;
 		fullAddress = fullAddress.replace('è', 'e');
 		fullAddress = fullAddress.replace('é', 'e');
 		fullAddress = fullAddress.replace('ê', 'e');

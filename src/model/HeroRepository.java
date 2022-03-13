@@ -12,7 +12,6 @@ import java.util.Stack;
 
 import controleur.GPSCoordinates;
 import entite.Hero;
-import entite.Hero;
 
 public class HeroRepository {
     private Connection connection;
@@ -95,7 +94,6 @@ public class HeroRepository {
 		ArrayList<Hero> heros = new ArrayList<Hero>(); 
 		Hero hero;
 		ResultSet result;
-		
 		try {
 			Statement st = this.connection.createStatement();
 			result = st.executeQuery("SELECT * FROM hero");

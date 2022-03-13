@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import controleur.GPSCoordinates;
 import entite.Hero;
 import entite.TypeIncident;
 import entite.Incident;
@@ -37,9 +38,12 @@ public class ServletCreateIncident extends HttpServlet  {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String urlVue = "createIncident.jsp";
 		if(request.getParameter("createIncident") != null) {
-			double latitude = Double.parseDouble(request.getParameter("latitude")); 
-			double longitude = Double.parseDouble(request.getParameter("longitude")); 
+//			double latitude = Double.parseDouble(request.getParameter("latitude")); 
+//			double longitude = Double.parseDouble(request.getParameter("longitude")); 
 			String ville = request.getParameter("ville");  
+			GPSCoordinates gpsVille = GPSCoordinates.getGpsCoordinatesByAddress(ville);
+			double latitude = gpsVille.getLatitude().doubleValue();
+			double longitude = gpsVille.getLongitude().doubleValue();
 			String typeIncident = request.getParameter("incidentType"); 
 			Incident incident = new Incident(ville, latitude, longitude);
 			
